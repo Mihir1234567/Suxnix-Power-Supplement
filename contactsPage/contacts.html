@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Contact</title>
+        <link rel="icon" type="image/png" href="/images/HulkArm.PNG" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    </head>
+    <body>
+        <div id="navbar-placeholder"></div>
+
+        <div id="hero-placeholder"></div>
+
+        <main>
+            <section class="contact-cards-section">
+                <div class="contact-grid">
+                    <div class="card">
+                        <div class="icon-container">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+
+                        <div class="content-text">
+                            <h3>OFFICE ADDRESS</h3>
+                            <p>99 NY Address Street, Brooklyn, United State</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="icon-container">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+
+                        <div class="content-text">
+                            <h3>PHONE NUMBER</h3>
+                            <p>875 7556 464 7658</p>
+                            <p>765 648 567 98</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="icon-container">
+                            <i class="fas fa-globe"></i>
+                        </div>
+
+                        <div class="content-text">
+                            <h3>WEB CONNECT</h3>
+                            <p>info@suxnixmail.com</p>
+                            <p>suxnitexample.com</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- map anf form section  -->
+        <section class="map-form-section">
+            <div class="container">
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d96819.39553720116!2d-73.975416!3d40.682647!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25bae694479a3%3A0xb9949385da52e69e!2sBarclays%20Center!5e0!3m2!1sen!2sbd!4v1759155386312!5m2!1sen!2sbd"
+                        width="600"
+                        height="450"
+                        style="border: 0"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                </div>
+
+                <div class="form-container">
+                    <p class="subtitle">.. REQUEST MAKE ..</p>
+                    <h2>ASKED ANYTHING YOU WANT TO KNOW</h2>
+
+                    <form action="#" method="POST" class="contact-form">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="name">Name</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    placeholder="Enter here"
+                                />
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="Enter here"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="subject">Select Subject **</label>
+                            <select id="subject">
+                                <option value="" disabled selected>
+                                    Select Subject **
+                                </option>
+
+                                <option value="DeliveryOrders">
+                                    Delivery Orders
+                                </option>
+                                <option value="Diet&Exercise">
+                                    Diet & Exercise
+                                </option>
+                                <option value="Marketing&Press">
+                                    Marketing & Press
+                                </option>
+                                <option value="Success">
+                                    Share Your Success
+                                </option>
+                                <option value="Wholesale">
+                                    Wholesale and Returens
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="message">Message</label>
+                            <textarea
+                                id="message"
+                                placeholder="Enter here"
+                                rows="6"
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">
+                            <span class="btn-text">Make Request</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <div id="footer-placeholder"></div>
+
+        <script src="../template.js"></script>
+        <script src="../script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // This is the call that injects the CONTACT US hero content
+                window.renderHero({
+                    title: "Contact Us",
+                    currentTitle: "Contacts",
+                    currentLink: "/contactsPage/contacts.html",
+                });
+            });
+        </script>
+    </body>
+</html>

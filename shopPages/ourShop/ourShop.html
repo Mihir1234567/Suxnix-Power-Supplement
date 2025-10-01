@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Products</title>
+        <link rel="icon" type="image/png" href="/images/HulkArm.PNG" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        />
+        <!-- Main Stylesheet for shared components like navbar/footer -->
+        <link rel="stylesheet" href="../style.css" />
+        <!-- Shop-specific stylesheet -->
+        <link rel="stylesheet" href="ourShop.css" />
+        <script src="/template.js"></script>
+    </head>
+    <body>
+        <div id="navbar-placeholder"></div>
+
+        <div id="hero-placeholder"></div>
+        <div class="suxnix-shop-container">
+            <div class="suxnix-shop-layout">
+                <div class="suxnix-products-main">
+                    <div class="suxnix-shop-toolbar">
+                        <span class="suxnix-results-count"
+                            >Showing 1–9 of 12 results</span
+                        >
+                        <select class="suxnix-orderby-select">
+                            <option value="default">Default sorting</option>
+                            <option value="popularity">
+                                Sort by popularity
+                            </option>
+                            <option value="rating">
+                                Sort by average rating
+                            </option>
+                            <option value="latest">Sort by latest</option>
+                            <option value="price-low">
+                                Sort by price: low to high
+                            </option>
+                            <option value="price-high">
+                                Sort by price: high to low
+                            </option>
+                        </select>
+                    </div>
+                    <div
+                        id="suxnix-products-grid-container"
+                        class="suxnix-products-grid"
+                    ></div>
+                </div>
+                <div class="suxnix-shop-sidebar">
+                    <div class="suxnix-sidebar-widget">
+                        <h3 class="suxnix-widget-title">FILTER BY PRICE</h3>
+                        <div class="suxnix-price-range">
+                            <input
+                                type="range"
+                                id="price-range-slider"
+                                min="20"
+                                max="280"
+                                value="280"
+                            />
+                            <div class="suxnix-price-label">
+                                <p>
+                                    Price: $<span id="price-min-value">20</span>
+                                    - $<span id="price-max-value">280</span>
+                                </p>
+                                <button
+                                    id="suxnix-filter-button"
+                                    class="suxnix-filter-btn"
+                                >
+                                    FILTER
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suxnix-sidebar-widget">
+                        <h3 class="suxnix-widget-title">CATEGORIES</h3>
+                        <ul class="suxnix-category-list">
+                            <li>
+                                <a href="#" data-category="Burners">Burners</a>
+                            </li>
+                            <li>
+                                <a href="#" data-category="Fat Burners"
+                                    >Fat Burners</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#" data-category="Medicine"
+                                    >Medicine</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#" data-category="Nutrition"
+                                    >Nutrition</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#" data-category="Protein">Protein</a>
+                            </li>
+                            <li><a href="#" data-category="all">All</a></li>
+                        </ul>
+                    </div>
+                    <div class="suxnix-sidebar-widget">
+                        <h3 class="suxnix-widget-title">LATEST PRODUCTS</h3>
+                        <ul class="suxnix-latest-products">
+                            <li>
+                                <img
+                                    src="/images/ourShopP6.avif"
+                                    alt="SERIOUS MASS 2KG"
+                                />
+                                <div class="product-info">
+                                    <div class="rating">★★★★★</div>
+                                    <a href="#">SERIOUS MASS 2KG</a>
+                                    <p>Tk 49.99</p>
+                                </div>
+                            </li>
+                            <li>
+                                <img
+                                    src="/images/ourShopP1.avif"
+                                    alt="WHEY PROTEIN POWDER"
+                                />
+                                <div class="product-info">
+                                    <div class="rating">★★★★★</div>
+                                    <a href="#">WHEY PROTEIN POWDER</a>
+                                    <p>Tk 49.99</p>
+                                </div>
+                            </li>
+                            <li>
+                                <img
+                                    src="/images/ourShopP5.avif"
+                                    alt="SERIOUS MASS 2KG"
+                                />
+                                <div class="product-info">
+                                    <div class="rating">★★★★★</div>
+                                    <a href="#">SERIOUS MASS 2KG</a>
+                                    <p>Tk 49.99</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="suxnix-sidebar-widget">
+                        <h3 class="suxnix-widget-title">PRODUCT TAGS</h3>
+                        <div class="suxnix-tag-cloud">
+                            <a href="#">medicine</a>
+                            <a href="#">Protin</a>
+                            <a href="#">Supplement</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer-placeholder"></div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                window.renderHero({
+                    title: "Our Shop",
+                    currentTitle: "Our Shop",
+                    currentLink: "/shop/ourShop.html",
+                });
+            });
+        </script>
+        <!-- Main script for shared components -->
+        <script src="/script.js"></script>
+        <!-- Shop-specific script -->
+        <script src="ourShop.js"></script>
+    </body>
+</html>
