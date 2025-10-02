@@ -109,8 +109,8 @@ const templates = {
                             Shop <span class="caret">▾</span>
                         </button>
                         <ul class="mobile-dropdown-menu">
-                            <li><a href="/shopPages/ourShop">Our Shop</a></li>
-                            <li><a href="/shopPages/shopDetails">Shop Details</a></li>
+                            <li><a href="/shopPages/ourShop.html">Our Shop</a></li>
+                            <li><a href="/shopPages/shopDetails.html">Shop Details</a></li>
                             <li><a href="#">Cart Page</a></li>
                             <li><a href="#">Login Page</a></li>
                             <li><a href="#">Register</a></li>
