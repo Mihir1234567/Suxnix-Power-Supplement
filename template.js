@@ -31,7 +31,7 @@ const templates = {
                 <li class="dropdown">
                     <a href="#">News</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Our Blogs</a></li>
+                        <li><a href="/newsPages/ourBlog.html">Our Blogs</a></li>
                         <li><a href="#">Blog Details</a></li>
                     </ul>
                 </li>
@@ -125,7 +125,7 @@ const templates = {
                             News <span class="caret">▾</span>
                         </button>
                         <ul class="mobile-dropdown-menu">
-                            <li><a href="#">Our Blogs</a></li>
+                            <li><a href="/newsPages/ourBlog.html">Our Blogs</a></li>
                             <li><a href="#">Blog Details</a></li>
                         </ul>
                     </li>
@@ -424,7 +424,6 @@ loadCSS(
 loadCSS("https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css");
 loadCSS("/style.css");
 // In template.js
-
 
 document.addEventListener("DOMContentLoaded", () => {
     if (document.getElementById("navbar-placeholder")) {
