@@ -31,8 +31,8 @@ const templates = {
                 <li class="dropdown">
                     <a href="#">News</a>
                     <ul class="dropdown-menu">
-                        <li><a href="/newsPages/ourBlog.html">Our Blogs</a></li>
-                        <li><a href="#">Blog Details</a></li>
+                        <li><a href="/newsPages/ourBlog/ourBlog.html">Our Blogs</a></li>
+                        <li><a href="/newsPages/blogDetails/blogDetails.html">Blog Details</a></li>
                     </ul>
                 </li>
                 <li><a href="/contactsPage/contacts.html">Contacts</a></li>
@@ -125,8 +125,8 @@ const templates = {
                             News <span class="caret">▾</span>
                         </button>
                         <ul class="mobile-dropdown-menu">
-                            <li><a href="/newsPages/ourBlog.html">Our Blogs</a></li>
-                            <li><a href="#">Blog Details</a></li>
+                            <li><a href="/newsPages/ourBlog/ourBlog.html">Our Blogs</a></li>
+                            <li><a href="/newsPages/blogDetails/blogDetails.html">Blog Details</a></li>
                         </ul>
                     </li>
 

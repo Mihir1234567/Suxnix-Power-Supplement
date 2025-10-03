@@ -31,17 +31,6 @@
     box-sizing: border-box;
 }
 
-@media (max-width: 991px) {
-    .main-content,
-    .sidebar {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-    .sidebar {
-        margin-top: 40px;
-    }
-}
-
 .blog-post {
     background: #fff;
     margin-bottom: 60px;
@@ -113,7 +102,7 @@
 .by {
     color: #666;
 }
-.post-author:hover .Web{
+.post-author:hover .Web {
     color: orange;
 }
 .post-author {
@@ -565,21 +554,25 @@ input:focus {
     text-decoration: none;
 }
 
-@media (max-width: 768px) {
+hr {
+    opacity: 0.2;
+}
+
+@media (max-width: 991px) {
+    .row {
+        flex-direction: column;
+        width: 100%;
+    }
+
     .main-content,
     .sidebar {
-        flex: 0 0 100%;
+        flex: 1 1 100%;
         max-width: 100%;
     }
 
     .sidebar {
-        order: -1;
-        margin-bottom: 40px;
+        margin-top: 40px;
     }
-}
-
-hr {
-    opacity: 0.2;
 }
 
 .social-icons a:hover {

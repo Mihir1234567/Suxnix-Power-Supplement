@@ -1,0 +1,265 @@
+.blog-section {
+    background-color: white;
+}
+.blog-post-details .post-image {
+    margin-bottom: 20px;
+}
+
+.blog-post-details .post-tags {
+    margin-bottom: 15px;
+}
+
+.blog-post-details .post-tags .tag {
+    background-color: #0d9b4d;
+    color: white;
+    padding: 5px 10px;
+    margin-right: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.blog-post-details .post-title {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.blog-post-details .post-meta {
+    margin-bottom: 30px;
+}
+
+.blog-post-details .post-content p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+.blog-post-details .post-content h4 {
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.blog-post-details .post-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.blog-post-details .post-content ul li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.blog-post-details .post-content ul li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #0d9b4d;
+    position: absolute;
+    left: 0;
+}
+
+.blog-post-details .highlight-box {
+    background-color: #0d9b4d;
+    color: white;
+    padding: 30px;
+    margin: 30px 0;
+    text-align: center;
+    font-style: italic;
+}
+
+.blog-post-details .highlight-box .author {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.blog-post-details .highlight-box p {
+    font-size: 25px;
+    width: 90%;
+    justify-self: center;
+    font-weight: 600;
+}
+
+.post-bottom-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin: 30px 0;
+}
+
+.related-tags h5,
+.share-post h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.share-post h5 {
+    text-align: right;
+}
+
+.prev-post .related-tags .tags-list .tag {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.share-post .social-icons a {
+    color: #a4a4a4;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+.prev-post,
+.next-post {
+    width: 48%;
+}
+
+.prev-post {
+    text-align: left;
+}
+
+.next-post {
+    text-align: right;
+}
+
+.post-navigation span {
+    display: block;
+    font-size: 15px;
+    color: #0d9b4d;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.post-navigation a {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+}
+
+.post-navigation a:hover {
+    color: orange;
+}
+
+.related-posts {
+    margin: 30px 0;
+}
+
+.related-posts h5 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.author-box {
+    background-color: #f9f9f9;
+    padding: 30px;
+    text-align: center;
+}
+
+.author-box span {
+    text-align: left;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.author-box h6 {
+    text-align: left;
+    font-size: 30px;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.comments-section {
+    margin: 30px 0;
+}
+
+.comments-section .section-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    border-left: 3px solid #0d9b4d;
+    padding-left: 10px;
+}
+
+.comment-form-wrapper {
+    background-color: #f9f9f9;
+    padding: 30px;
+}
+
+.comment-form .input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.comment-form textarea,
+.comment-form input {
+    padding: 15px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    background-color: white;
+    width: 93%;
+}
+
+.comment-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.comment-form .input-group i {
+    position: absolute;
+    top: 20%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: #999;
+}
+.comment-form .input-group .fa-pencil-alt {
+    position: absolute;
+    top: 15%;
+    right: 30px;
+    transform: translateY(-50%);
+    color: #999;
+}
+.comment-form .input-group .fa-envelope,
+.comment-form .input-group .fa-user {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.main-content {
+    flex: 0 0 65%;
+    border: #e8e8e8 1px solid;
+    padding: 0;
+}
+.post-tags {
+    padding-left: 2%;
+}
+.row {
+    gap: 4%;
+}
+.post-bottom-meta,
+.post-navigation,
+.related-posts,
+.comments-section {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.z {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
