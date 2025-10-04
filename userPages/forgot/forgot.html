@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Forgot Password</title>
+        <link rel="icon" type="image/png" href="/images/HulkArm.PNG" />
+
+        <script src="/template.js"></script>
+        <link rel="stylesheet" href="./forgot.css" />
+    </head>
+    <body>
+        <div id="navbar-placeholder"></div>
+
+        <div id="hero-placeholder"></div>
+
+        <div class="forgot-container">
+            <h1>FORGOT PASSWORD</h1>
+            <p>
+                Lost your password? Please enter your email address. You will
+                receive a link to create a new password via email.
+            </p>
+            <form>
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Email" />
+                <div class="buttons">
+                    <button type="submit" class="btnn">Submit</button>
+                    <a href="/userPages/login/login.html" class="cancel"
+                        >Cancel</a
+                    >
+                </div>
+            </form>
+        </div>
+
+        <div id="footer-placeholder"></div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                window.renderHero({
+                    // 2. Custom H1 Title for this page
+                    title: "Forgot Password",
+
+                    // 3. Current item in the breadcrumb: Home | [THIS TEXT]
+                    currentTitle: "Forgot Password",
+
+                    // 4. Optional: The link for the current page
+                    currentLink: "/userPages/forgot/forgot.html",
+
+                    // 5. Optional: Set a custom background image/color
+                    //    (Uncomment and modify the line below to add custom styling)
+                    // style: "background-image: url('___ PATH TO IMAGE (e.g., /images/contact-bg.jpg) ___'); background-color: #2a683e;"
+
+                    // 6. Optional: To remove the decorative shapes, uncomment the line below:
+                    // shapes: ""
+                });
+            });
+        </script>
+
+        <script src="/script.js"></script>
+    </body>
+</html>

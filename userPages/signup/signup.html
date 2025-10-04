@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Create Account</title>
+        <link rel="icon" type="image/png" href="/images/HulkArm.PNG" />
+        <script src="/template.js"></script>
+        <link rel="stylesheet" href="./signup.css" />
+    </head>
+    <body>
+        <div id="navbar-placeholder"></div>
+
+        <div id="hero-placeholder"></div>
+
+        <div class="signupContainer">
+            <h1>Create Your Account</h1>
+            <p>
+                Hey there! Ready to join the party? We just need a few details
+                from you to get started. Let's do this!
+            </p>
+            <form action="">
+                <div class="name-row">
+                    <div class="field">
+                        <label for="firstName">First Name</label>
+                        <input
+                            type="text"
+                            id="firstName"
+                            placeholder="First Name"
+                        />
+                    </div>
+                    <div class="field">
+                        <label for="lastName">Last name</label>
+                        <input
+                            type="text"
+                            id="lastName"
+                            placeholder="Last Name"
+                        />
+                    </div>
+                </div>
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Email" />
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Password" />
+                <label for="ConfirmPassword">Confirm Password</label>
+                <input
+                    type="password"
+                    id="ConfirmPassword"
+                    placeholder="Confirm Password"
+                />
+
+                <button type="submit" class="btn"><span>Sign Up</span></button>
+                <p>
+                    Already have an account?
+                    <a href="/userPages/login/login.html">Login</a>
+                </p>
+            </form>
+        </div>
+        <div id="footer-placeholder"></div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                window.renderHero({
+                    // 2. Custom H1 Title for this page
+                    title: "Create Account",
+
+                    // 3. Current item in the breadcrumb: Home | [THIS TEXT]
+                    currentTitle: "Create Account",
+
+                    // 4. Optional: The link for the current page
+                    currentLink: "/userPages/login/login.html",
+
+                    // 5. Optional: Set a custom background image/color
+                    //    (Uncomment and modify the line below to add custom styling)
+                    // style: "background-image: url('___ PATH TO IMAGE (e.g., /images/contact-bg.jpg) ___'); background-color: #2a683e;"
+
+                    // 6. Optional: To remove the decorative shapes, uncomment the line below:
+                    // shapes: ""
+                });
+            });
+        </script>
+
+        <script src="/script.js"></script>
+    </body>
+</html>

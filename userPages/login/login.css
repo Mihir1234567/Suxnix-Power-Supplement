@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+    --primary-green: rgb(238, 168, 40);
+    --dark-green: orange;
+    --light-gray: #f8f9fa;
+    --border-color: #ced4da;
+}
+
+.loginContainer {
+    background-color: #f5f5f5;
+    margin-top: 5%;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+    align-self: center;
+    justify-self: center;
+}
+
+.loginContainer h1 {
+    font-size: 28px;
+    color: black;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.loginContainer p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.loginContainer form {
+    display: flex;
+    flex-direction: column;
+}
+
+.loginContainer label {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(black);
+}
+
+.loginContainer input[type="email"],
+.loginContainer input[type="password"] {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 15px;
+    color: var(black);
+    transition: border-color 0.3s ease;
+}
+
+.loginContainer input[type="email"]:focus,
+.loginContainer input[type="password"]:focus {
+    border-color: var(--primary-green);
+    outline: none;
+}
+
+.loginContainer input::placeholder {
+    color: #adb5bd;
+}
+
+.loginContainer > div {
+    /* This targets the div containing Remember Me and Forgot Password */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.loginContainer input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--primary-green); /* Styles the checkbox itself */
+}
+
+.loginContainer > div label {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 400;
+}
+
+.loginContainer a {
+    color: var(--primary-green);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.btn {
+    color: white;
+    height: 55px;
+    width: 100%;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    /* Added 'color' to the transition for a smoother text color change */
+    transition: color 0.5s ease;
+}
+
+/* Hover fill effect layer */
+.btn::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: orange; /* white fill */
+    border-radius: 50px;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+/* Animate background on hover */
+.btn:hover::before {
+    transform: scaleY(1);
+}
+
+/* Change text color on hover */
+.btn:hover {
+    color: white; /* orange text */
+}
+.loginContainer a:hover {
+    color: var(--dark-green);
+}
+.loginContainer p:last-child {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
+}
+
+.loginContainer p:last-child a {
+    font-weight: 500;
+}
+
+/* Specific styling for the Remember Me checkbox and label */
+.loginContainer form > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.loginContainer form > div > input[type="checkbox"] {
+    margin-right: 8px;
+    /* Reset default margin if any */
+    margin-bottom: 0;
+}
+
+.loginContainer form > div {
+    /* To visually encapsulate "Remember me" and its checkbox */
+    /* This creates a containing block for the text and checkbox */
+    /* Remove if you want them to be separate */
+    display: flex;
+    align-items: center;
+}
+
+.loginContainer form > div > a {
+    /* Style for Forgot Password */
+    margin-left: auto; /* Pushes Forgot Password to the right */
+}
+
+@media (max-width: 768px) {
+    .loginContainer {
+        margin-top: 20px;
+        padding: 20px;
+        box-shadow: none;
+    }
+
+    .loginContainer h1 {
+        font-size: 24px;
+    }
+
+    .loginContainer input[type="email"],
+    .loginContainer input[type="password"] {
+        padding: 10px 15px;
+    }
+
+    .btn {
+        height: 50px;
+    }
+}

@@ -248,6 +248,9 @@
 .post-tags {
     padding-left: 2%;
 }
+.post-tags .tags:hover{color: white;
+    background-color: #000;
+}
 .row {
     gap: 4%;
 }

@@ -7,9 +7,9 @@ const templates = {
 
             <ul class="links desktop-links">
                 <li class="dropdown">
-                    <a href="/">Home</a>
+                    <a href="/index.html">Home</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Home One</a></li>
+                        <li><a href="/index.html">Home One</a></li>
                         <li><a href="#">Home Two</a></li>
                         <li><a href="#">Home Three</a></li>
                     </ul>
@@ -24,8 +24,8 @@ const templates = {
                         <li><a href="/shopPages/ourShop/ourShop.html">Our Shop</a></li>
                         <li><a href="/shopPages/shopDetails/shopDetails.html">Shop Details</a></li>
                         <li><a href="#">Cart Page</a></li>
-                        <li><a href="#">Login Page</a></li>
-                        <li><a href="#">Register</a></li>
+                        <li><a href="/userPages/login/login.html">Login Page</a></li>
+                        <li><a href="/userPages/signup/signup.html">Register</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -90,7 +90,7 @@ const templates = {
                             Home <span class="caret">▾</span>
                         </button>
                         <ul class="mobile-dropdown-menu">
-                            <li><a href="#">Home One</a></li>
+                            <li><a href="/index.html">Home One</a></li>
                             <li><a href="#">Home Two</a></li>
                             <li><a href="#">Home Three</a></li>
                         </ul>
@@ -112,8 +112,8 @@ const templates = {
                             <li><a href="/shopPages/ourShop.html">Our Shop</a></li>
                             <li><a href="/shopPages/shopDetails.html">Shop Details</a></li>
                             <li><a href="#">Cart Page</a></li>
-                            <li><a href="#">Login Page</a></li>
-                            <li><a href="#">Register</a></li>
+                            <li><a href="/userPages/login/login.html">Login Page</a></li>
+                            <li><a href="/userPages/signup/signup.html">Register</a></li>
                         </ul>
                     </li>
 
@@ -130,7 +130,7 @@ const templates = {
                         </ul>
                     </li>
 
-                    <li><a href="#">Contacts</a></li>
+                    <li><a href="/contactsPage/contacts.html">Contacts</a></li>
                 </ul>
             </nav>
 
@@ -270,20 +270,20 @@ const templates = {
                             <div class="footer-widget">
                                 <h4 class="fw-title">ABOUT US</h4>
                                 <ul class="list-wrap">
-                                    <li><a href="#">Shop</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                    <li><a href="#">Blogs</a></li>
-                                    <li><a href="#">Product</a></li>
+                                    <li><a href="">Shop</a></li>
+                                    <li><a href="/contactsPage/contacts.html">Contact</a></li>
+                                    <li><a href="/newsPages/ourBlog/ourBlog.html">Blogs</a></li>
+                                    <li><a href="/shopPages/shopDetails/shopDetails.html">Product</a></li>
                                 </ul>
                             </div>
-
+    
                             <div class="footer-widget">
                                 <h4 class="fw-title">SUPPORT</h4>
                                 <ul class="list-wrap">
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">Blogs</a></li>
-                                    <li><a href="#">Blog Post</a></li>
-                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="/index.html">Home</a></li>
+                                    <li><a href="/newsPages/ourBlog/ourBlog.html">Blogs</a></li>
+                                    <li><a href="/newsPages/blogDetails/blogDetails.html">Blog Post</a></li>
+                                    <li><a href="/contactsPage/contacts.html">Contact</a></li>
                                 </ul>
                             </div>
 
@@ -361,7 +361,7 @@ const templates = {
                 <div class="content-box">
                     <h1>${options.title.toUpperCase()}</h1>
                     <p>
-                        <a href="/" class="breadcrumb-link">Home</a>
+                        <a href="/index.html" class="breadcrumb-link">Home</a>
                         <span class="separator">|</span>
                         <a href="${
                             options.currentLink || "#"

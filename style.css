@@ -1455,6 +1455,7 @@ html {
     transform-origin: bottom;
     transition: transform 0.5s ease;
     z-index: -1;
+    color: white;
 }
 
 /* Animate background */
@@ -2148,42 +2149,42 @@ a:hover {
 
 /* --- 4. Scroll To Top Button --- */
 
-.scroll-to-top-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #28a745; /* Green to match your image */
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8); /* Subtle, soft shadow like in image */
-    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateY(100px); /* Start below viewport */
-    z-index: 1000;
-}
+    .scroll-to-top-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #28a745; /* Green to match your image */
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8); /* Subtle, soft shadow like in image */
+        transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0;
+        transform: translateY(100px); /* Start below viewport */
+        z-index: 1000;
+    }
 
-.scroll-to-top-btn.visible {
-    opacity: 1;
-    transform: translateY(0); /* Slide up to position */
-}
+    .scroll-to-top-btn.visible {
+        opacity: 1;
+        transform: translateY(0); /* Slide up to position */
+    }
 
-.scroll-to-top-btn:hover {
-    background-color: #218838; /* Darker green on hover */
-    transform: translateY(-2px); /* Slight lift on hover */
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
-}
+    .scroll-to-top-btn:hover {
+        background-color: #218838; /* Darker green on hover */
+        transform: translateY(-2px); /* Slight lift on hover */
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
+    }
 
-/* Custom arrow icon styling to match your image */
-.scroll-to-top-btn .fas {
-    position: relative;
-    top: 1px; /* Adjust vertical alignment */
-    color: #ffffff; /* Ensure arrow is white */
-}
+    /* Custom arrow icon styling to match your image */
+    .scroll-to-top-btn .fas {
+        position: relative;
+        top: 1px; /* Adjust vertical alignment */
+        color: #ffffff; /* Ensure arrow is white */
+    }
 /* --- 5. Lightbox Modal --- */
 .lightbox-modal {
     display: none; /* Hidden by default */

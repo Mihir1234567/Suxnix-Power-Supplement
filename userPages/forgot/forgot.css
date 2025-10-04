@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+    --primary-green: #4caf50;
+    --dark-green: #388e3c;
+    --light-gray: #f8f9fa;
+    --border-color: #ced4da;
+    --text-dark: #333;
+    --text-light: #666;
+    --placeholder: #adb5bd;
+    --link-orange: #f57c00;
+}
+
+.forgot-container {
+    background-color: var(--light-gray);
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.forgot-container h1 {
+    font-size: 28px;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.forgot-container p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.forgot-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.forgot-container label {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    display: block;
+}
+
+.forgot-container input {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 15px;
+    color: var(--text-dark);
+    transition: border-color 0.3s ease;
+    background-color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.forgot-container input:focus {
+    border-color: orange;
+    outline: none;
+}
+
+.forgot-container .buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.btnn {
+    background-color: white;
+    border: 1px solid black;
+    color: var(--link-orange);
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.btnn.cancel {
+    background-color: transparent;
+    border: none;
+    color: var(--link-orange);
+    padding: 0;
+    text-decoration: none;
+}
+
+.btnn:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .forgot-container {
+        margin-top: 20px;
+        padding: 20px;
+        box-shadow: none;
+    }
+
+    .forgot-container h1 {
+        font-size: 24px;
+    }
+
+    .btnn {
+        height: 50px;
+    }
+}

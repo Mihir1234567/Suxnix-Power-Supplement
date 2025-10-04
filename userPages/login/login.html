@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Account</title>
+        <link rel="icon" type="image/png" href="/images/HulkArm.PNG" />
+        <script src="/template.js"></script>
+        <link rel="stylesheet" href="./login.css" />
+    </head>
+    <body>
+        <div id="navbar-placeholder"></div>
+
+        <div id="hero-placeholder"></div>
+
+        <div class="loginContainer">
+            <h1>Welcome back!</h1>
+            <p>
+                Hey there! Ready to log in? Just enter your username and
+                password below and you'll be back in action in no time. Let's
+                go!
+            </p>
+            <form action="">
+                <label for="email"> Email </label>
+                <input type="email" placeholder="Email" id="email" />
+                <label for="password"> Password </label>
+                <input type="password" id="password" placeholder="Password"/>
+                <div>
+                    <input type="checkbox" name="rem_me" id="rem_me" />
+                    Remember Me
+                    <a href="/userPages/forgot/forgot.html">
+                        Forgot Password?
+                    </a>
+                </div>
+                <button type="submit" class="btn"><span>Sign In</span></button>
+                <p>
+                    Don't have an account?
+                    <a href="/userPages/signup/signup.html">Sign Up</a>
+                </p>
+            </form>
+        </div>
+        <div id="footer-placeholder"></div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                window.renderHero({
+                    // 2. Custom H1 Title for this page
+                    title: "Login",
+
+                    // 3. Current item in the breadcrumb: Home | [THIS TEXT]
+                    currentTitle: "Login",
+
+                    // 4. Optional: The link for the current page
+                    currentLink: "/userPages/login/login.html",
+
+                    // 5. Optional: Set a custom background image/color
+                    //    (Uncomment and modify the line below to add custom styling)
+                    // style: "background-image: url('___ PATH TO IMAGE (e.g., /images/contact-bg.jpg) ___'); background-color: #2a683e;"
+
+                    // 6. Optional: To remove the decorative shapes, uncomment the line below:
+                    // shapes: ""
+                });
+            });
+        </script>
+
+        <script src="/script.js"></script>
+    </body>
+</html>
