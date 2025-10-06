@@ -2,7 +2,8 @@
 const templates = {
     navbar: `         <nav class="navbar">
             <div class="logo">
-                <img src="/images/Hoarding7.webp" alt="Logo" />
+              <a href="/index.html">
+  <img src="/images/Hoarding7.webp" alt="Logo" /></a>
             </div>
 
             <ul class="links desktop-links">
@@ -109,8 +110,8 @@ const templates = {
                             Shop <span class="caret">▾</span>
                         </button>
                         <ul class="mobile-dropdown-menu">
-                            <li><a href="/shopPages/ourShop.html">Our Shop</a></li>
-                            <li><a href="/shopPages/shopDetails.html">Shop Details</a></li>
+                            <li><a href="/shopPages/ourShop/ourShop.html">Our Shop</a></li>
+                            <li><a href="/shopPages//shopDetails/shopDetails.html">Shop Details</a></li>
                             <li><a href="#">Cart Page</a></li>
                             <li><a href="/userPages/login/login.html">Login Page</a></li>
                             <li><a href="/userPages/signup/signup.html">Register</a></li>
