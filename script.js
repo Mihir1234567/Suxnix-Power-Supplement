@@ -295,8 +295,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Lightbox for Instagram feed
-// In script.js - REPLACE your old initLightbox function with this one
-
 function initLightbox() {
     const modal = document.getElementById("lightbox-modal");
     if (!modal) return;
@@ -316,21 +314,18 @@ function initLightbox() {
         });
     });
 
-    // Function to close the modal
     function closeModal() {
         modal.style.display = "none";
     }
 
     closeBtn.addEventListener("click", closeModal);
 
-    // Also close modal if the background is clicked
     modal.addEventListener("click", function (e) {
         if (e.target === modal) {
             closeModal();
         }
     });
 
-    // Close modal with the Escape key
     document.addEventListener("keydown", function (e) {
         if (e.key === "Escape" && modal.style.display === "flex") {
             closeModal();
@@ -348,4 +343,84 @@ document.addEventListener("DOMContentLoaded", () => {
             priceValue.textContent = `Tk ${priceSlider.value}`;
         });
     }
+});
+
+// NEW: Infinite slider for Featured Products
+document.addEventListener("DOMContentLoaded", () => {
+    const productsRow = document.querySelector(
+        ".FeaturedProducts .products-row"
+    );
+    const prevButton = document.querySelector(".FeaturedProducts .fp-prev");
+    const nextButton = document.querySelector(".FeaturedProducts .fp-next");
+
+    if (!productsRow || !prevButton || !nextButton) {
+        return;
+    }
+
+    let isTransitioning = false;
+    const transitionSpeed = 500; // milliseconds
+
+    // Function to slide to the next item
+    const slideNext = () => {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        const firstCard = productsRow.firstElementChild;
+        if (!firstCard) {
+            isTransitioning = false;
+            return;
+        }
+
+        const cardWidth = firstCard.offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(productsRow).gap);
+        const scrollAmount = cardWidth + gap;
+
+        // Apply transition and transform
+        productsRow.style.transition = `transform ${transitionSpeed}ms ease-in-out`;
+        productsRow.style.transform = `translateX(-${scrollAmount}px)`;
+
+        // After the transition ends, move the card and reset
+        setTimeout(() => {
+            productsRow.appendChild(firstCard);
+            productsRow.style.transition = "none";
+            productsRow.style.transform = "translateX(0)";
+            isTransitioning = false;
+        }, transitionSpeed);
+    };
+
+    // Function to slide to the previous item
+    const slidePrev = () => {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        const lastCard = productsRow.lastElementChild;
+        if (!lastCard) {
+            isTransitioning = false;
+            return;
+        }
+
+        const cardWidth = lastCard.offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(productsRow).gap);
+        const scrollAmount = cardWidth + gap;
+
+        // Move last card to the beginning and instantly shift the container
+        productsRow.insertBefore(lastCard, productsRow.firstElementChild);
+        productsRow.style.transition = "none";
+        productsRow.style.transform = `translateX(-${scrollAmount}px)`;
+
+        // Force browser to apply the transform instantly
+        // The setTimeout of 0ms or requestAnimationFrame helps ensure this
+        setTimeout(() => {
+            productsRow.style.transition = `transform ${transitionSpeed}ms ease-in-out`;
+            productsRow.style.transform = "translateX(0)";
+        }, 0);
+
+        // After the transition ends, reset the flag
+        setTimeout(() => {
+            isTransitioning = false;
+        }, transitionSpeed);
+    };
+
+    nextButton.addEventListener("click", slideNext);
+    prevButton.addEventListener("click", slidePrev);
 });
