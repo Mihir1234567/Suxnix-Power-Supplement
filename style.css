@@ -12,9 +12,6 @@ html {
     scroll-behavior: smooth !important;
 }
 
-* {
-    transition: all 0.3s ease-in-out;
-}
 
 /***************************
     * Navbar
@@ -137,6 +134,7 @@ html {
 }
 .buttons .fa-cart-shopping {
     position: relative;
+    cursor: pointer;
     font-size: 28px;
     color: #555;
     transition: color 0.3s ease;
@@ -1935,7 +1933,6 @@ html {
 .formula-text {
     flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
     min-width: 300px;
@@ -2092,8 +2089,9 @@ html {
         align-items: center;
     }
     .formula-text {
-        text-align: center;
+        text-align: left;
         width: 100%;
+        align-items: center;
     }
     .formula-text h2 {
         font-size: 26px;
@@ -3011,7 +3009,20 @@ a:hover {
         width: 40px;
         height: 40px;
         bottom: 20px;
+
         right: 20px;
+    }
+}
+/* When News stacks (<=992px) hide testimonial arrows and widen testimonial text */
+@media (max-width: 992px) {
+    .testimonial-slider .prev,
+    .testimonial-slider .next {
+        display: none !important;
+    }
+    .testimonial-slider .text {
+        width: 80% !important;
+        margin-left: 10% !important;
+        text-align: center !important;
     }
 }
 .footer-shape1,

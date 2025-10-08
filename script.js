@@ -190,46 +190,133 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Testimonial Slider
-let slideIndex = 0;
-function showSlide(n) {
-    const slidesContainer = document.querySelector(".slides");
-    const dots = document.querySelectorAll(".dot");
-    const numSlides = document.querySelectorAll(".slide").length;
-    if (!slidesContainer || !dots.length) return;
+// Testimonial Slider (infinite loop using cloned slides)
+// Keeps global plusSlides(n) and currentSlide(n) wrappers so existing
+// HTML onclick handlers continue to work.
+(function () {
+    let container, sliderEl, dots, autoInterval;
+    let isTransitioning = false;
+    let index = 1; // starts at first real slide after prepending clone
 
-    slideIndex = (n + numSlides) % numSlides;
-    slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
-    dots.forEach((dot) => dot.classList.remove("active"));
-    dots[slideIndex].classList.add("active");
-}
+    function setup() {
+        sliderEl = document.querySelector(".testimonial-slider");
+        container = document.querySelector(".slides");
+        if (!sliderEl || !container) return;
 
-function plusSlides(n) {
-    showSlide(slideIndex + n);
-}
-function currentSlide(n) {
-    showSlide(n);
-}
+        const origSlides = Array.from(container.querySelectorAll(".slide"));
+        if (origSlides.length <= 1) {
+            // nothing to do for single slide
+            dots = sliderEl.querySelectorAll(".dot");
+            if (dots && dots[0]) dots[0].classList.add("active");
+            return;
+        }
 
-document.addEventListener("DOMContentLoaded", () => {
-    if (document.querySelector(".testimonial-slider")) {
-        showSlide(slideIndex);
-        let autoSlideInterval = setInterval(() => plusSlides(1), 5000);
+        // Clone first and last slides for seamless looping
+        const firstClone = origSlides[0].cloneNode(true);
+        const lastClone = origSlides[origSlides.length - 1].cloneNode(true);
+        container.appendChild(firstClone);
+        container.insertBefore(lastClone, container.firstElementChild);
 
-        document
-            .querySelector(".testimonial-slider")
-            .addEventListener("mouseenter", () =>
-                clearInterval(autoSlideInterval)
-            );
-        document
-            .querySelector(".testimonial-slider")
-            .addEventListener(
-                "mouseleave",
-                () =>
-                    (autoSlideInterval = setInterval(() => plusSlides(1), 5000))
-            );
+        // Update slides collection and dots
+        dots = Array.from(sliderEl.querySelectorAll(".dot"));
+
+        // Start by showing the first real slide (index = 1)
+        container.style.transition = "none";
+        container.style.transform = `translateX(-${index * 100}%)`;
+        // Force reflow so transition changes take effect when we enable them later
+        void container.offsetWidth;
+
+        // Transition end handler to correct position when hitting clones
+        container.addEventListener("transitionend", () => {
+            const slides = container.querySelectorAll(".slide");
+            const realCount = slides.length - 2; // excluding clones
+            if (index === 0) {
+                // jumped to clone-of-last at the front -> snap to real last
+                container.style.transition = "none";
+                index = realCount;
+                container.style.transform = `translateX(-${index * 100}%)`;
+                void container.offsetWidth;
+            } else if (index === slides.length - 1) {
+                // jumped to clone-of-first at the end -> snap to real first
+                container.style.transition = "none";
+                index = 1;
+                container.style.transform = `translateX(-${index * 100}%)`;
+                void container.offsetWidth;
+            }
+            isTransitioning = false;
+            updateDots();
+        });
+
+        attachHoverPause();
+        startAuto();
+        updateDots();
     }
-});
+
+    function updateDots() {
+        if (!dots || !dots.length) return;
+        // Map internal index to dot index (0-based)
+        const slides = container.querySelectorAll(".slide");
+        const realIndex = Math.max(0, Math.min(dots.length - 1, index - 1));
+        dots.forEach((d) => d.classList.remove("active"));
+        if (dots[realIndex]) dots[realIndex].classList.add("active");
+    }
+
+    function moveTo(newIndex, withTransition = true) {
+        if (!container) return;
+        if (isTransitioning) return;
+        isTransitioning = true;
+        container.style.transition = withTransition
+            ? "transform 0.5s ease-in-out"
+            : "none";
+        index = newIndex;
+        container.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function next() {
+        moveTo(index + 1, true);
+    }
+
+    function prev() {
+        moveTo(index - 1, true);
+    }
+
+    function goToDot(n) {
+        // n is 0-based dot index -> internal index is n+1
+        moveTo(n + 1, true);
+    }
+
+    function startAuto() {
+        stopAuto();
+        autoInterval = setInterval(next, 5000);
+    }
+
+    function stopAuto() {
+        if (autoInterval) {
+            clearInterval(autoInterval);
+            autoInterval = null;
+        }
+    }
+
+    function attachHoverPause() {
+        if (!sliderEl) return;
+        sliderEl.addEventListener("mouseenter", stopAuto);
+        sliderEl.addEventListener("mouseleave", startAuto);
+    }
+
+    // Expose global wrappers that the HTML already calls
+    window.plusSlides = function (n) {
+        if (n > 0) next();
+        else prev();
+    };
+    window.currentSlide = function (n) {
+        goToDot(n);
+    };
+
+    // Initialize on DOM ready
+    document.addEventListener("DOMContentLoaded", () => {
+        setup();
+    });
+})();
 
 // FAQ Toggle
 function toggleAnswer(element) {
@@ -423,4 +510,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     nextButton.addEventListener("click", slideNext);
     prevButton.addEventListener("click", slidePrev);
+});
+
+// Attach buy-button click handlers to reload the page
+document.addEventListener("DOMContentLoaded", () => {
+    const buyButtons = document.querySelectorAll(
+        ".buy-button, .shop-now, .shop-now-button"
+    );
+    if (!buyButtons || buyButtons.length === 0) return;
+    buyButtons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            // If the button is inside a form or has default behavior, prevent it
+            e.preventDefault();
+            // Small timeout to allow any UI feedback before reload
+            setTimeout(() => location.reload(), 50);
+        });
+    });
 });
