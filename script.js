@@ -362,24 +362,100 @@ function initInstagramSwiper() {
     }
 }
 
-// Scroll-to-top button
-document.addEventListener("DOMContentLoaded", () => {
-    const scrollToTopBtn = document.getElementById("scroll-to-top");
-    if (!scrollToTopBtn) return;
+// Scroll-to-top button (robust: supports late-injected footer)
+(function () {
+    function attachScrollButton(btn) {
+        if (!btn || btn.__suxnix_attached) return;
+        btn.__suxnix_attached = true;
 
-    window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 300) {
-            scrollToTopBtn.classList.add("visible");
-        } else {
-            scrollToTopBtn.classList.remove("visible");
+        function updateVisibility() {
+            const shouldShow = window.pageYOffset > 300;
+            if (shouldShow) {
+                btn.classList.add("visible");
+                btn.setAttribute("aria-hidden", "false");
+            } else {
+                btn.classList.remove("visible");
+                btn.setAttribute("aria-hidden", "true");
+            }
         }
-    });
 
-    scrollToTopBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        // Clear any inline hiding styles set in template to allow CSS to transition properly
+        try {
+            btn.style.opacity = "";
+            btn.style.transform = "";
+            // keep z-index cleared so CSS controls stacking (only fallback will set it)
+            btn.style.zIndex = "";
+        } catch (e) {}
+
+        // Attach scroll listener and run initial check
+        window.addEventListener("scroll", updateVisibility);
+        // Also listen for interactions that might indicate user scrolled/changed viewport
+        window.addEventListener("wheel", updateVisibility, { passive: true });
+        window.addEventListener("touchstart", updateVisibility, {
+            passive: true,
+        });
+        window.addEventListener("keydown", updateVisibility);
+        updateVisibility();
+
+        // Re-check after short delays for cases where layout or dynamic content changes page height
+        setTimeout(updateVisibility, 100);
+        setTimeout(updateVisibility, 500);
+
+        // Fallback: if the button still isn't visible when user has scrolled beyond threshold,
+        // apply inline styles to ensure it's shown (covers cases where another stacking context hides it)
+        setTimeout(() => {
+            if (
+                window.pageYOffset > 300 &&
+                !btn.classList.contains("visible")
+            ) {
+                try {
+                    // only apply minimal inline styles as a last-resort fallback
+                    btn.style.opacity = "1";
+                    btn.style.transform = "translateY(0)";
+                    btn.style.zIndex = "99999";
+                    btn.setAttribute("aria-hidden", "false");
+                } catch (e) {
+                    /* ignore */
+                }
+            }
+        }, 600);
+
+        // Click handler
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const existing = document.getElementById("scroll-to-top");
+        if (existing) {
+            attachScrollButton(existing);
+            return;
+        }
+
+        // If footer / button is injected later, observe DOM for it
+        const observer = new MutationObserver(() => {
+            const btn = document.getElementById("scroll-to-top");
+            if (btn) {
+                attachScrollButton(btn);
+                observer.disconnect();
+            }
+        });
+
+        observer.observe(document.body || document.documentElement, {
+            childList: true,
+            subtree: true,
+        });
+
+        // Safety fallback: try again after a short delay then disconnect
+        setTimeout(() => {
+            const btn = document.getElementById("scroll-to-top");
+            if (btn) attachScrollButton(btn);
+            observer.disconnect();
+        }, 2000);
     });
-});
+})();
 
 // Lightbox for Instagram feed
 function initLightbox() {

@@ -337,8 +337,12 @@ const templates = {
                 id="scroll-to-top"
                 class="scroll-to-top-btn"
                 aria-label="Scroll to top"
+                aria-hidden="true"
+                type="button"
+                style="opacity:0; transform: translateY(100px); transition: opacity 0.3s ease, transform 0.3s ease; z-index:99999;"
             >
-                <i class="fas fa-chevron-up"></i>
+                <span class="visually-hidden">Scroll to top</span>
+                <i class="fas fa-chevron-up" aria-hidden="true"></i>
             </button>
         </footer>
 

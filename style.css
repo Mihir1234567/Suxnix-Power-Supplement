@@ -8,10 +8,19 @@ body {
     background: #fdfdfd;
     color: #333;
 }
+
+/* Screen-reader only helper */
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap; /* Prevents the text from wrapping */
+}
 html {
     scroll-behavior: smooth !important;
 }
-
 
 /***************************
     * Navbar
@@ -967,7 +976,7 @@ html {
     grid-row: 1 / 2;
     justify-self: end;
     align-self: start;
-    transform: translate(-20px, 50px);
+    transform: translate(40px, 50px);
     margin-top: -24px;
 }
 
@@ -977,7 +986,7 @@ html {
     grid-row: 3 / 4;
     justify-self: end;
     align-self: start;
-    transform: translate(-20px, 20px) rotate(180deg);
+    transform: translate(40px, 20px) rotate(180deg);
     margin-top: -72px;
 }
 
